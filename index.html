@@ -1,91 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="userName">Name:</label>
+      <input id="userName" type="text" name="name" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    div {
-      display: inline-block;
-    }
+      <label for="mail">Email:</label>
+      <input id="mail" type="email" name="email" />
 
-    label {
-      font-weight: bold;
-    }
-  </style>
-</head>
+      <label for="number"> Number: </label>
+      <input id="number" type="number" name="number" />
 
-<body>
-  <form>
-    <div>
-      <label>Name:</label>
-      <input type="text" id="userName" name="userName">
-    </div>
-    <div>
-      <label>Email:</label>
-      <input type="email" id="userEmail" name="userEmail">
-    </div>
-    <div>
-      <label>Phone:</label>
-      <input type="number" id="userNumber" name="userNumber">
-    </div>
-    <div>
-      <input type="button" value="Submit" onclick="onSubmit()">
-    </div>
-  </form>
-  <ul id="items">
-
-  </ul>
-  <script>
-    function onSubmit() {
-      let name = document.getElementById('userName').value;
-      let email = document.getElementById('userEmail').value;
-      let mobile = document.getElementById('userNumber').value;
-
-      let myObj = {
-        Name: name,
-        Mail: email,
-        Mobile: mobile
-      };
-
-      localStorage.setItem(myObj.Mail, JSON.stringify(myObj));
-      displayInfo(myObj);
-    }
-
-    function displayInfo(myObj) {
-      var items = document.getElementById('items');
-
-      var node = document.createElement('li');
-      var text = myObj.Name + '-' + myObj.Mail + '-' + myObj.Mobile;
-      
-      var btnDelete = document.createElement('input');
-      btnDelete.value = 'Delete';
-      btnDelete.type = 'button';
-
-      btnDelete.onclick = () => {
-        localStorage.removeItem(myObj.Mail);
-        items.removeChild(node);
-      }
-
-      var btnEdit = document.createElement('input');
-      btnEdit.type = 'button';
-      btnEdit.value = 'Edit';
-      btnEdit.onclick = () => {
-        localStorage.removeItem(myObj.Mail);
-        items.removeChild(node);
-        document.getElementById('userName').value = myObj.Name;
-        document.getElementById('userEmail').value = myObj.Mail;
-        document.getElementById('userNumber').value = myObj.Number;
-      }
-
-      node.appendChild(document.createTextNode(text));
-      node.appendChild(btnDelete);
-      node.appendChild(btnEdit);
-      items.appendChild(node);
-    }
-  </script>
-</body>
-
+      <input type="button" value="Submit" id="myButton" />
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
