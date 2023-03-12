@@ -41,10 +41,6 @@ function displayUserData(myObj) {
     `${myObj["name"]} - ${myObj["mail"]} - ${myObj["number"]}`
   ); // Creating text node for storing the text
 
-  let btnEdit = document.createElement("input"); // Creating Edit button
-  btnEdit.type = "button";
-  btnEdit.value = "Edit";
-
   let btnDelete = document.createElement("input"); // Creating Delete button
   btnDelete.type = "button";
   btnDelete.value = "Delete";
@@ -60,7 +56,6 @@ function displayUserData(myObj) {
   let listItems = document.getElementById("listItems"); // Storing the unordered list element inside a variable
 
   node.appendChild(text); // Appending the text inside the list item
-  node.appendChild(btnEdit); // Appending the edit button insdie the list item
   node.appendChild(btnDelete); // Appending the delete button insdie the list item
 
   listItems.appendChild(node); // Appending the li item inside the unordered list
